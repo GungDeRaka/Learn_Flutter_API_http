@@ -1,0 +1,15 @@
+{
+    "name": "Gung Raka",
+    "programStudi": "Sistem Informasi",
+    "age": 19,
+    "hobies": [
+        "Menghabiskan uang",
+        "Ngoding",
+        "Membantu sesama"
+    ],
+    "github":{
+        "userName": "GungDeRaka",
+        "repositories": 11,
+        "isStudent" : true
+    }
+}
