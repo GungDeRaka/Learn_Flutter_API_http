@@ -12,8 +12,10 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  /// [result] will store the data u've fetched from dummy API [assets/dummy.json]
   Sample? result;
 
+  ///[_getJsonData] Will fetch data from dummy, decode it and store it in [result]
   Future _getJsonData() async {
     String getJson = await rootBundle.loadString("assets/dummy.json");
     Sample sample = Sample.fromJsom(jsonDecode(getJson));
@@ -30,59 +32,62 @@ class _MyHomePageState extends State<MyHomePage> {
         title: const Text("Learn Data Table and Parsing Data"),
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              (result == null)
-                  ? "belum ada data"
-                  : "${result!.name}\n${result!.age}\n${result!.programStudi}\n${result!.hobies![1]}",
-              textAlign: TextAlign.center,
-              style: const TextStyle(
-                fontSize: 24.0,
-                fontWeight: FontWeight.bold,
+        child: SingleChildScrollView(
+          controller: ScrollController(),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text(
+                (result == null) ? "belum ada data" : "${result!.articles![0]}",
+                textAlign: TextAlign.center,
+                style: const TextStyle(
+                  fontSize: 24.0,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
-            ),
-            const SizedBox(
-              height: 24.0,
-            ),
-            Text(
-              (result == null) ? "belum ada data" : "$result",
-              textAlign: TextAlign.center,
-              style: const TextStyle(
-                fontSize: 24.0,
-                fontWeight: FontWeight.bold,
+              const SizedBox(
+                height: 24.0,
               ),
-            ),
-            const SizedBox(
-              height: 24.0,
-            ),
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.blueGrey,
+              Text(
+                (result == null) ? "belum ada data" : "$result",
+                textAlign: TextAlign.center,
+                style: const TextStyle(
+                  fontSize: 24.0,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
-              onPressed: () {
-                setState(() {
-                  result = null;
-                });
-              },
-              child: const Text("Save"),
-            ),
-            const SizedBox(
-              height: 24.0,
-            ),
-            Text(
-              (result == null) ? "belum ada data" : result!.github.repositories.toString(),
-              textAlign: TextAlign.center,
-              style: const TextStyle(
-                fontSize: 24.0,
-                fontWeight: FontWeight.bold,
+              const SizedBox(
+                height: 24.0,
               ),
-            ),
-            const SizedBox(
-              height: 24.0,
-            ),
-          ],
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.blueGrey,
+                ),
+                onPressed: () {
+                  setState(() {
+                    result = null;
+                  });
+                },
+                child: const Text("Save"),
+              ),
+              const SizedBox(
+                height: 24.0,
+              ),
+              Text(
+                (result == null)
+                    ? "belum ada data"
+                    : result!.github.repositories.toString(),
+                textAlign: TextAlign.center,
+                style: const TextStyle(
+                  fontSize: 24.0,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              const SizedBox(
+                height: 24.0,
+              ),
+            ],
+          ),
         ),
       ),
       floatingActionButton: FloatingActionButton(

@@ -7,9 +7,32 @@
         "Ngoding",
         "Membantu sesama"
     ],
-    "github":{
+    "github": {
         "userName": "GungDeRaka",
         "repositories": 11,
-        "isStudent" : true
-    }
+        "isStudent": true
+    },
+    "articles": [
+        {
+            "id": 1,
+            "title": "God of War",
+            "subtitle": "That is a Game"
+        },
+        {
+            "id": 2,
+            "title": "PizzaHut",
+            "subtitle": "That is a Restaurant"
+        },
+        {
+            "id": 3,
+            "title": "Avenger",
+            "subtitle": "That is a Movie"
+        },
+        {
+            "id": 4,
+            "title": "Guru Koding",
+            "subtitle": "That is a Master"
+        }
+    ]
+   
 }
