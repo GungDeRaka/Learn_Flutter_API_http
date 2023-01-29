@@ -33,6 +33,23 @@
             "title": "Guru Koding",
             "subtitle": "That is a Master"
         }
-    ]
-   
+    ],
+    "contacts": {
+        "1": {
+            "name": "Gung Raka",
+            "phone": "082345"
+        },
+        "2": {
+            "name": "Gung Dhira",
+            "phone": "27112007"
+        },
+        "3": {
+            "name": "Wahyu Mulya",
+            "phone": "098768"
+        },
+        "4": {
+            "name": "Risma Amel",
+            "phone": "131313"
+        }
+    }
 }
