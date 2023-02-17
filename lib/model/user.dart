@@ -21,4 +21,9 @@ class User {
         lastName: json['last_name'] ?? "",
         avatar: json['avatar'] ?? "");
   }
+
+  @override
+  String toString() {
+    return 'User(id: $id, email: $email, firstName: $firstName, lastName: $lastName, avatar: $avatar)';
+  }
 }

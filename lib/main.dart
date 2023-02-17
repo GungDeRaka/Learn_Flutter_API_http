@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:learn_parsing_data_json_dart/pages/dio_display_screen.dart';
 import 'pages/display_data.dart';
 import 'pages/home_page.dart';
 import 'pages/home_stateless_future_builder.dart';
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       // home: const MyHomePage(),
-      home: const HomePageStatelessFuture(),
+      home: const DioDisplayUser(),
     );
   }
 }
