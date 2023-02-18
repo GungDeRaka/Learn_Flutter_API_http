@@ -13,7 +13,12 @@ class DioDisplayUser extends StatefulWidget {
 
 class _DioDisplayUserState extends State<DioDisplayUser> {
   bool dataFetched = false;
-  User? dio= User(id: 2, email: "email", firstName: 'firstName', lastName: 'lastName', avatar: "avatar") ;
+  User? dio = User(
+      id: 2,
+      email: "email",
+      firstName: 'firstName',
+      lastName: 'lastName',
+      avatar: "avatar");
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,7 +31,11 @@ class _DioDisplayUserState extends State<DioDisplayUser> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             (dataFetched && dio != null)
-                ? MyUserTag(email: dio!.email,id: dio!.id.toString(),name: "${dio!.firstName} ${dio!.lastName}",)
+                ? MyUserTag(
+                    email: dio!.email,
+                    id: dio!.id.toString(),
+                    name: "${dio!.firstName} ${dio!.lastName}",
+                  )
                 : Text(
                     "Belum ada data",
                     style: TextStyle(
@@ -34,35 +43,42 @@ class _DioDisplayUserState extends State<DioDisplayUser> {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  const SizedBox(
-                  height: 20.0,
-                  ),
-                  ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.blueGrey,
-                  ),
-                  onPressed: ()async {
-                    User? dito = await DioService.fetchData(2) ;
-                    print(dio);
-                    dataFetched = !dataFetched;
-                    setState(() {
-                      dio=dito;
-                    });
-                  },
-                  child: const Text("Save"),
-                  ),
-                  
-                  const SizedBox(
-                  height: 20.0,
-                  ),
-                  ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.blueGrey,
-                  ),
-                  onPressed: () {},
-                  child: const Text("post"),
-                  ),
-                  
+            const SizedBox(
+              height: 20.0,
+            ),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.blueGrey,
+              ),
+              onPressed: () async {
+                User? dito = await DioService.fetchData(2);
+                print(dio);
+                dataFetched = !dataFetched;
+                setState(() {
+                  dio = dito;
+                });
+              },
+              child: const Text("Save"),
+            ),
+            const SizedBox(
+              height: 20.0,
+            ),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.blueGrey,
+              ),
+              onPressed: () async {
+                User? result = await DioService.createUSer(
+                    "Gung", "Raka", "wkwkwk@gmail.com");
+                dataFetched = !dataFetched;
+                if (result != null) {
+                  setState(() {
+                    dio = result;
+                  });
+                }
+              },
+              child: const Text("post"),
+            ),
           ],
         ),
       ),
